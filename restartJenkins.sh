@@ -36,6 +36,13 @@ echo "***********************************"
 echo "Starting Jenkins"
 echo "***********************************"
 echo ""
+
+if [ ! -f startJenkins.sh ]
+then
+   echo "startJenkins.sh script does not exist under $working_dir"
+  exit 1
+fi
+
 echo "Running $working_dir/startJenkins.sh"
 echo ""
 ./startJenkins.sh

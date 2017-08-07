@@ -8,6 +8,7 @@
 #   1) Owner/Organization name
 #   2) Repository name
 #   3) Tag
+#   4) Install path
 #
 # What it does:
 #    1) Set path to git tag
@@ -18,6 +19,7 @@
 #
 # Author: lnh
 # Date : 8/1/2017
+# Modification Date : 8/7/2017
 #
 
 WGET=`which wget`
@@ -38,14 +40,14 @@ rm -f $LOG
 touch $LOG
 
 #Check the number of arguments
-if [ $# -lt 3 ]
+if [ $# -lt 4 ]
 then
   echo ""
   echo "***********************************************"
   echo "Bad usage ---"
-  echo "Usage: ./$SCRIPT_NAME ORGANIZATION/OWNER REPO_NAME GIT_TAG"
-  echo "Example1: ./$SCRIPT_NAME mdibl data_downloads  1-0-4-3"
-  echo "Example1: ./$SCRIPT_NAME mdibl biocore_misc  master"
+  echo "Usage: ./$SCRIPT_NAME ORGANIZATION/OWNER REPO_NAME GIT_TAG INSTALL_DIR"
+  echo "Example1: ./$SCRIPT_NAME mdibl data_downloads  v1.1.0 /usr/local/biocore"
+  echo "Example1: ./$SCRIPT_NAME mdibl biocore_misc  master /usr/local/biocore/admin"
   echo ""
   echo "***********************************************"
   echo ""
@@ -55,6 +57,7 @@ fi
 ORG=$1
 REPO=$2
 TAG=$3
+INSTALL_DIR=$4
 
 #Url to private repository
 GIT_URL=https://api.github.com/repos/$ORG/$REPO/tarball/$TAG
@@ -70,18 +73,21 @@ echo "Tag: $TAG"| tee -a $LOG
 echo "Repository: $REPO"| tee -a $LOG
 echo "Organization: $ORG"| tee -a $LOG
 echo "Git url: $GIT_URL"| tee -a $LOG
-echo "My Github personal token: $GTOKEN" | tee -a $LOG
+echo "This product will be installed under: $INSTALL_DIR" | tee -a $LOG
+
 date | tee -a $LOG
 
+cd $INSTALL_DIR
+#clean previous download of this tag
+if [ -d $TAG_DIR ]
+then
+   echo "The tag $TAG_DIR is already installed under $INSTALL_DIR"
+   exit 0
+fi
 #execute the command
 echo Cammand: $WGET -O $TAG_TAR_FILE  "$GIT_URL" | tee -a $LOG
 $WGET -O $TAG_TAR_FILE  "$GIT_URL" | tee -a $LOG
 
-#clean previous download of this tag
-if [ -d $TAG_DIR ]
-then
-  rm -rf $TAG_DIR
-fi
 #Create local directory for this tag
 mkdir $TAG_DIR
 
@@ -93,6 +99,9 @@ $TAR -xzvf $TAG_TAR_FILE -C $TAG_DIR --strip-components 1
 #Remove the tar file
 rm -f $TAG_TAR_FILE
 
+#create/update symbolic link
+rm -f $REPO
+ln -s $TAG_DIR $REPO
+
 date
 echo "Program complete"
-

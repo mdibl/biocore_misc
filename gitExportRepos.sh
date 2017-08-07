@@ -103,6 +103,13 @@ rm -f $TAG_TAR_FILE
 rm -f $REPO
 ln -s $TAG_DIR $REPO
 
+# Check if the repos has an install script
+if [ -f $REPO/Install ]
+then 
+     cd $REPO
+     ./Install
+fi
+
 date
 echo "Program complete"
 exit 0

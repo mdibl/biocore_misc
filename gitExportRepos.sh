@@ -105,3 +105,5 @@ ln -s $TAG_DIR $REPO
 
 date
 echo "Program complete"
+exit 0
+

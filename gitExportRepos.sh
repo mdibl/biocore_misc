@@ -82,7 +82,7 @@ cd $INSTALL_DIR
 if [ -d $TAG_DIR ]
 then
    echo "The tag $TAG_DIR is already installed under $INSTALL_DIR"
-   exit 0
+   mv $TAG_DIR $TAG_DIR.old
 fi
 #execute the command
 echo Cammand: $WGET -O $TAG_TAR_FILE  "$GIT_URL" | tee -a $LOG

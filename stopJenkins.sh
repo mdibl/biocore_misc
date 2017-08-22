@@ -29,6 +29,6 @@ then
   echo "Jenkins  process ID : $PID killed successfully "
   exit 0
 else
- echo "Failed to kill Jeninks process $NPID"
+ echo "Failed to kill Jenkins process $NPID"
  exit 1
 fi

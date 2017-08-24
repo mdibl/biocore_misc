@@ -43,12 +43,19 @@ LOG_FILE=$2
 #
 # Make sure the log file exists.
 #
-if [ ! -d "${LOG_FILE}" ]
+if [ ! -e "${LOG_FILE}" ]
 then
     echo "The logfile ($LOG_FILE) does not exist on this server ($NODE_NAME)"
     exit 1
 fi
-
+#
+# Make sure MAIL_LIST exists
+#
+if [ ! -e "${MAIL_LIST}" ]
+then
+   echo "The MAIL_LIST environment variable is missing"
+   exit 1
+fi
 #
 # Notify admin with the contents of the log
 #

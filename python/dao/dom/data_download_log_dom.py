@@ -24,7 +24,7 @@ script has the following information:
 
 '''
 class LogDOM:
-   def __init(self,source_name,log_file):
+   def __init__(self,source_name,log_file):
        self.source_name=source_name
        self.dataset=""
        self.download_date=""

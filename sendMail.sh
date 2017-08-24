@@ -10,9 +10,6 @@
 #
 #      sendMail  subject log_file
 #
-#      where
-#
-#          subject = the text to be appended to the email subject line
 #
 #  Env Vars:
 #

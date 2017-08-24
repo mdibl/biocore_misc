@@ -8,7 +8,7 @@
 #
 #  Usage:
 #
-#      sendMail  subject
+#      sendMail  subject log_file
 #
 #      where
 #

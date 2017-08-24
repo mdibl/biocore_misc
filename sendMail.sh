@@ -21,7 +21,9 @@
 #
 #  Inputs:  subject, log_file
 # 
-#  Assumes: Job runs on Jenkins
+#  Assumes: 
+#     1: Job runs on Jenkins
+#     2: Job runs by user bioadmin
 #
 #  Exit Codes:
 #

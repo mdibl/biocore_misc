@@ -51,7 +51,7 @@ fi
 #
 # Make sure MAIL_LIST exists
 #
-if [ ! -e "${MAIL_LIST}" ]
+if [ "${MAIL_LIST}" = "" ]
 then
    echo "The MAIL_LIST environment variable is missing"
    exit 1

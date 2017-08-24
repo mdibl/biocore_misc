@@ -23,7 +23,8 @@
 #                  the current server where the project is running
 #
 #  Inputs:  subject, log_file
-#
+# 
+#  Assumes: Job runs on Jenkins
 #
 #  Exit Codes:
 #

@@ -3,8 +3,8 @@
 #  sendMail
 ###########################################################################
 #
-#  Purpose:  This script will send the contents of the log to each
-#            recipient in the mail list.
+#  Purpose:  This script will send the contents of the specified file to each
+#            recipient in the mail list. Called by checkLog process
 #
 #  Usage:
 #

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-class Biocore:
+class BiocoreDOM:
     def __init(self):
         self.external_data_dir="/data/external"
         self.internal_data_dir="/data/internal"

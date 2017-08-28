@@ -16,6 +16,8 @@ class BiocoreDOM:
    
         self.log_dir="/data/logs"
         self.data_downloads_log_dir="/data/logs/data_downloads"
+        self.data_downloads_log_json=self.data_downloads_log_dir+"/master_log.json"
+        self.data_downloads_log_xmln=self.data_downloads_log_dir+"/master_log.xml"
         
         self.data_downloads_scripts_dir="/usr/local/biocore/data_downloads"
         

@@ -62,7 +62,7 @@ class LogDAO(BiocoreDOM):
         jsonObject["download_ends"]=logObject.download_end_date
         jsonObject["remote_site"]=logObject.remote_site
         jsonObject["remote_directory"]=logObject.remote_directory
-        jsonObject["remote_files"]=','.join(logObject.remote_files)
+        jsonObject["remote_files"]=logObject.remote_files
         jsonObject["local_directory"]=logObject.local_directory
         jsonObject["wget_log_file"]=logObject.wget_log_file
         

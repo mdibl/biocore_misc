@@ -8,19 +8,19 @@ from os import listdir
 from os.path import isfile, isdir,join
 
 '''
-#
-# Defines actions on logs generated from data downloads 
-# using the info in getAnnotations.sh.source.version.dataset.log
+
+ Defines actions on logs generated from data downloads 
+ using the info in getAnnotations.sh.source.version.dataset.log
 '''
  
 class LogDAO(BiocoreDOM):
     def __init__(self):
         BiocoreDOM.__init__(self)
     
-    #
-    ## Returns a list of log files generated from this source downloads
-    #  stored by version whne applicable
-    #
+    '''
+     Returns a list of log files generated from this source downloads
+     stored by version where applicable
+    '''
     def get_logs(self,source):
         target_logs={}
         for log_file in self.current_logs:
@@ -51,9 +51,10 @@ class LogDAO(BiocoreDOM):
         logDict["wget_log_file"]=logObject.wget_log_file
         return logDict
         
-    ##
-    # convert log object to xml element and returns the xml string
-    #
+    '''
+     Turns log object into xml element and returns the xml element.
+     It calls og_object_to_dict.
+    '''
     def log_object_to_xml(self,tag,logObject):
         xml_elem = Element(tag)
         for key,val in self.log_object_to_dict(logObject).items():
@@ -63,14 +64,15 @@ class LogDAO(BiocoreDOM):
             xml_elem.append(xml_elem_child)
         return xml_elem
     
-    ##
-    # convert log object to json object and returns the json string
-    #
+    '''
+     Turns log object into json object and returns the json string
+    '''
     def log_object_to_json(self,logObject):
         return  json.dumps(self.log_object_to_dict(logObject))
-    #
-    # Returns an object representing data in the specified log file
-    #
+    
+    '''
+     Returns an object representing data in the specified log file
+    '''
     def get_log_object(self,source,log_file):
         return DownloadsLogDOM(source,log_file)
 

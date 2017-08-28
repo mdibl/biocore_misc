@@ -3,6 +3,9 @@
 from os import listdir
 from os.path import join,isdir,isfile
 
+'''
+A base class that sets the path to biocore info  
+'''
 class BiocoreDOM:
     def __init__(self):
         self.external_data_dir="/data/external"
@@ -15,7 +18,9 @@ class BiocoreDOM:
         self.data_downloads_log_dir="/data/logs/data_downloads"
         
         self.data_downloads_scripts_dir="/usr/local/biocore/data_downloads"
+        
         self.current_sources=[]
+        self.current_external_software=[]
         self.current_logs= []
         self.set_biocore()
  

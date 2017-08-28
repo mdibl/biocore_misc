@@ -44,7 +44,7 @@ class LogDAO(BiocoreDOM):
         xml_string+="<ends>"+logObject.download_end_date+"</ends>\n"
         xml_string+="<remote_site>"+logObject.remote_site+"</remote_site>\n"
         xml_string+="<remote_directory>"+logObject.remote_directory+"</remote_directory>\n"
-        xml_string+="<remote_files>"+logObject.remote_files+"</remote_files>\n"
+        xml_string+="<remote_files>"+join(',',logObject.remote_files)+"</remote_files>\n"
         xml_string+="<local_directory>"+logObject.local_directory+"</local_directory>\n"
         xml_string+="<wget_log_file>"+logObject.wget_log_file+"</wget_log_file>\n"
         return  xml_string

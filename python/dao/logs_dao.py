@@ -47,6 +47,7 @@ class LogDAO(BiocoreDOM):
         xml_string+="<remote_files>"+','.join(logObject.remote_files)+"</remote_files>\n"
         xml_string+="<local_directory>"+logObject.local_directory+"</local_directory>\n"
         xml_string+="<wget_log_file>"+logObject.wget_log_file+"</wget_log_file>\n"
+        xml_string="</source>\n"
         return  xml_string
     #
     # Returns an object representing data in the specified log file

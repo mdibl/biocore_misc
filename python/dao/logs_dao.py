@@ -2,7 +2,7 @@
 
 from biocore_config import BiocoreDOM
 from data_download_log_dom import DownloadsLogDOM
-from xml.etree.ElementTree import Element
+from xml.etree.ElementTree import Element,dump,iselement
 import sys,json
 from os import listdir
 from os.path import isfile, isdir,join

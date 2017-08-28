@@ -46,7 +46,7 @@ if __name__== "__main__":
         for version in target_logs:
             for log_file in target_logs[version]:
                  logObject=myLogDAO.get_log_object(source,log_file)
-                 print "\n\n",logObject.source_name,logObject.version,logObject.dataset,logObject.download_date
+                 print "\n\n",logObject.source_name,logObject.version,logObject.dataset,logObject.download_start_date,logObject.download_end_date
                  print logObject.remote_site,logObject.remote_directory,logObject.local_directory,logObject.wget_log_file
                  print "\n".join(logObject.remote_files)
 

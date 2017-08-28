@@ -2,6 +2,7 @@
 
 from biocore_config import BiocoreDOM
 from data_download_log_dom import DownloadsLogDOM
+from xml.etree.ElementTree import Element
 import sys,json
 from os import listdir
 from os.path import isfile, isdir,join
@@ -33,9 +34,35 @@ class LogDAO(BiocoreDOM):
                     print("Failed because of: ",sys.exc_info()[0])
                     raise
         return target_logs
+    '''
+    Turns a log object into a dictionary
+    '''
+    def log_object_to_dict(self,logObject):
+        logDict={}
+        logDict["name"]=logObject.source_name
+        logDict["version"]=logObject.version
+        logDict["dataset"]=logObject.dataset
+        logDict["download_starts"]=logObject.download_start_date
+        logDict["download_ends"]=logObject.download_end_date
+        logDict["remote_site"]=logObject.remote_site
+        logDict["remote_directory"]=logObject.remote_directory
+        logDict["remote_files"]=logObject.remote_files
+        logDict["local_directory"]=logObject.local_directory
+        logDict["wget_log_file"]=logObject.wget_log_file
+        return logDict
+        
     ##
     # convert log object to xml element and returns the xml string
     #
+    def log_object_to_xml(self,tag,dictObject):
+        xml_elem = Element(tag)
+        for key,val in dictObject.items():
+            xml_elem_child= Element(key)
+            xml_elem_child.text=str(val)
+            xml_elem.append(xml_elem_child)
+        return xml_elem
+    
+    '''
     def log_object_to_xml(self,logObject):
         xml_string="<source name='"+logObject.source_name+"'>\n"
         xml_string+="<version>"+logObject.version+"</version>\n"
@@ -49,7 +76,7 @@ class LogDAO(BiocoreDOM):
         xml_string+="<wget_log_file>"+logObject.wget_log_file+"</wget_log_file>\n"
         xml_string+="</source>\n"
         return  xml_string
-    
+    '''
     ##
     # convert log object to json object and returns the json string
     #

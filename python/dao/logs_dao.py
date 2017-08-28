@@ -33,6 +33,20 @@ class LogDAO(BiocoreDOM):
                     print("Failed because of: ",sys.exc_info()[0])
                     raise
         return target_logs
+    ##
+    # convert log object to xml element
+    def log_object_to_xml(self,logObject):
+        xml_string="<source name='"+logObject.source_name+"'>\n"
+        xml_string+="<version>"+logObject.version+"</version>\n"
+        xml_string+="<dataset>"+logObject.dataset+"</dataset>\n"
+        xml_string+="<begins>"+logObject.download_start_date+"</begins>\n"
+        xml_string+="<ends>"+logObject.download_end_date+"</ends>\n"
+        xml_string+="<remote_site>"+logObject.remote_site+"</remote_site>\n"
+        xml_string+="<remote_directory>"+logObject.remote_directory+"</remote_directory>\n"
+        xml_string+="<remote_files>"+logObject.remote_files+"</remote_files>\n"
+        xml_string+="<local_directory>"+logObject.local_directory+"</local_directory>\n"
+        xml_string+="<wget_log_file>"+logObject.wget_log_file+"</wget_log_file>\n"
+        return  xml_string
     #
     # Returns an object representing data in the specified log file
     #

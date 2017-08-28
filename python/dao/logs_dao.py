@@ -54,10 +54,11 @@ class LogDAO(BiocoreDOM):
     ##
     # convert log object to xml element and returns the xml string
     #
-    def log_object_to_xml(self,tag,dictObject):
+    def log_object_to_xml(self,tag,logObject):
         xml_elem = Element(tag)
-        for key,val in dictObject.items():
+        for key,val in self.log_object_to_dict(logObject).items():
             xml_elem_child= Element(key)
+            if "remote_files" in key: val=','.join(val)
             xml_elem_child.text=str(val)
             xml_elem.append(xml_elem_child)
         return xml_elem
@@ -81,19 +82,7 @@ class LogDAO(BiocoreDOM):
     # convert log object to json object and returns the json string
     #
     def log_object_to_json(self,logObject):
-        jsonObject={}
-        jsonObject["name"]=logObject.source_name
-        jsonObject["version"]=logObject.version
-        jsonObject["dataset"]=logObject.dataset
-        jsonObject["download_starts"]=logObject.download_start_date
-        jsonObject["download_ends"]=logObject.download_end_date
-        jsonObject["remote_site"]=logObject.remote_site
-        jsonObject["remote_directory"]=logObject.remote_directory
-        jsonObject["remote_files"]=logObject.remote_files
-        jsonObject["local_directory"]=logObject.local_directory
-        jsonObject["wget_log_file"]=logObject.wget_log_file
-        
-        return  json.dumps(jsonObject)
+        return  json.dumps(self.log_object_to_dict(logObject))
     #
     # Returns an object representing data in the specified log file
     #

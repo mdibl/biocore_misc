@@ -42,7 +42,7 @@ class DownloadsLogDOM:
 
    ##
    #
-   def set_log(self,log_block):
+   def set_log(self,block):
         for token in block:
             if not ":" in token:continue
             tokens=token.split(":")

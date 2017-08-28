@@ -2,7 +2,7 @@
 
 from biocore_config import BiocoreDOM
 from data_download_log_dom import DownloadsLogDOM
-import sys
+import sys,json
 from os import listdir
 from os.path import isfile, isdir,join
 
@@ -40,7 +40,7 @@ class LogDAO(BiocoreDOM):
         xml_string="<source name='"+logObject.source_name+"'>\n"
         xml_string+="<version>"+logObject.version+"</version>\n"
         xml_string+="<dataset>"+logObject.dataset+"</dataset>\n"
-        xml_string+="<download_begins>"+logObject.download_start_date+"</download_begins>\n"
+        xml_string+="<download_starts>"+logObject.download_start_date+"</download_starts>\n"
         xml_string+="<download_ends>"+logObject.download_end_date+"</download_ends>\n"
         xml_string+="<remote_site>"+logObject.remote_site+"</remote_site>\n"
         xml_string+="<remote_directory>"+logObject.remote_directory+"</remote_directory>\n"
@@ -49,6 +49,24 @@ class LogDAO(BiocoreDOM):
         xml_string+="<wget_log_file>"+logObject.wget_log_file+"</wget_log_file>\n"
         xml_string+="</source>\n"
         return  xml_string
+    
+    ##
+    # convert log object to json object and returns the json string
+    #
+    def log_object_to_json(self,logObject):
+        jsonObject={}
+        jsonObject["name"]=logObject.source_name
+        jsonObject["version"]=logObject.version
+        jsonObject["dataset"]=logObject.dataset
+        jsonObject["download_starts"]=logObject.download_start_date
+        jsonObject["download_ends"]=logObject.download_end_date
+        jsonObject["remote_site"]=logObject.remote_site
+        jsonObject["remote_directory"]=logObject.remote_directory
+        jsonObject["remote_files"]=','.join(logObject.remote_files)
+        jsonObject["local_directory"]=logObject.local_directory
+        jsonObject["wget_log_file"]=logObject.wget_log_file
+        
+        return  json.dumps(jsonObject)
     #
     # Returns an object representing data in the specified log file
     #

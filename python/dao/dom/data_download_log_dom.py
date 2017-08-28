@@ -47,8 +47,8 @@ class DownloadsLogDOM:
             if not ":" in token:continue
             tokens=token.split(":")
             if len(tokens)<2:continue
-            if "Start Date:" in token:self.download_start_date= token
-            elif "End Date:" in token:self.download_end_date= token
+            if "Start Date:" in token:self.download_start_date=token.replace("Start Date:","")
+            elif "End Date:" in token:self.download_end_date= token.replace("End Date:","")
             elif "Release:" in token:self.version=tokens[1].lstrip(" ") 
             elif "Dataset:" in token:self.dataset=tokens[1].lstrip(" ") 
             elif "Remote site:" in token:self.remote_site=tokens[1] 
@@ -67,7 +67,7 @@ class DownloadsLogDOM:
                     if not "==" in line:block.append(line)
                     else:
                         if len(block)<=0:continue
-                        if "Remote files:" in block:self.remote_files=block
+                        if "Remote files:" in block:self.remote_files=block[1:len(block)-1]
                         else:
                             self.set_log(block)  
                         block=[]

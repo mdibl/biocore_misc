@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from biocore_config import BiocoreDOM
-from data_download_log_dom import DownloadsLogDOM
+from dom.biocore_config import BiocoreDOM
+from dom.data_download_log_dom import DownloadsLogDOM
 from xml.etree.ElementTree import Element,dump,iselement
 import sys,json
 from os import listdir

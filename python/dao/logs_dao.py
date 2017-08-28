@@ -80,5 +80,5 @@ if __name__== "__main__":
         for version in target_logs:
             for log_file in target_logs[version]:
                  logObject=myLogDAO.get_log_object(source,log_file)
-                 print myLogDAO.log_object_to_xml(logObject)
+                 print myLogDAO.log_object_to_json(logObject)
 

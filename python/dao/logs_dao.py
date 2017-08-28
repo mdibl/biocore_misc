@@ -34,7 +34,8 @@ class LogDAO(BiocoreDOM):
                     raise
         return target_logs
     ##
-    # convert log object to xml element
+    # convert log object to xml element and returns the xml string
+    #
     def log_object_to_xml(self,logObject):
         xml_string="<source name='"+logObject.source_name+"'>\n"
         xml_string+="<version>"+logObject.version+"</version>\n"

@@ -34,6 +34,13 @@ class LogDAO(BiocoreDOM):
                     print("Failed because of: ",sys.exc_info()[0])
                     raise
         return target_logs
+    
+    '''
+     Returns the object representation of data in the specified log file
+    '''
+    def get_log_object(self,source,log_file):
+        return DownloadsLogDOM(source,log_file)
+
     '''
     Turns a log object into a dictionary
     '''
@@ -70,12 +77,6 @@ class LogDAO(BiocoreDOM):
     def log_object_to_json(self,logObject):
         return  json.dumps(self.log_object_to_dict(logObject))
     
-    '''
-     Returns an object representing data in the specified log file
-    '''
-    def get_log_object(self,source,log_file):
-        return DownloadsLogDOM(source,log_file)
-
 if __name__== "__main__":
     myLogDAO=LogDAO()
     for source in myLogDAO.current_sources:

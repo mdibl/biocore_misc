@@ -8,7 +8,7 @@ from os.path import isfile, isdir,join
 
 '''
 #
-# Defines actions logs generated from data downloads 
+# Defines actions on logs generated from data downloads 
 # using the info in getAnnotations.sh.source.version.dataset.log
 '''
  

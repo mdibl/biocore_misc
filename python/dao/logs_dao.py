@@ -33,7 +33,9 @@ class LogDAO(BiocoreDOM):
                     print("Failed because of: ",sys.exc_info()[0])
                     raise
         return target_logs
-
+    #
+    # Returns an object representing data in the specified log file
+    #
     def get_log_object(self,source,log_file):
         return DownloadsLogDOM(source,log_file)
 

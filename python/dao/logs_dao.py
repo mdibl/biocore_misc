@@ -2,7 +2,7 @@
 
 from dom.biocore_config import BiocoreDOM
 from dom.data_download_log_dom import DownloadsLogDOM
-from xml.etree.ElementTree import Element,dump,iselement
+from xml.etree.ElementTree import etree, Element,dump,iselement
 import sys,json
 from os import listdir
 from os.path import isfile, isdir,join
@@ -67,7 +67,7 @@ class LogDAO(BiocoreDOM):
         for key,val in self.log_object_to_dict(logObject).items():
             xml_elem_child= Element(key)
             if "remote_files" in key: val=','.join(val)
-            xml_elem_child.text='<![CDATA['+str(val)+"]]>"
+            xml_elem_child.text=etree.CDATA(str(val))
             xml_elem.append(xml_elem_child)
         return xml_elem
     

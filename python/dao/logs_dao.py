@@ -62,7 +62,7 @@ class LogDAO(BiocoreDOM):
      Turns log object into xml element and returns the xml element.
      It calls og_object_to_dict.
     '''
-    def log_object_to_xml(self,tag,logObject):
+    def log_object_to_xml_element(self,tag,logObject):
         xml_elem = Element(tag)
         for key,val in self.log_object_to_dict(logObject).items():
             xml_elem_child= Element(key)
@@ -71,6 +71,21 @@ class LogDAO(BiocoreDOM):
             xml_elem.append(xml_elem_child)
         return xml_elem
     
+    '''
+     Turns log object into xml string and returns the xml string.
+     It calls og_object_to_dict.
+    '''
+    def log_object_to_xml_string(self,tag,logObject):
+        xml_string =[]
+        xml_string.append("<"+tag+">")
+        for key,val in self.log_object_to_dict(logObject).items():
+            xml_string.append("<"+key+">")
+            if "remote_files" in key: val=','.join(val)
+            xml_string.append("<![CDATA["+str(val)+"]]>")
+            xml_string.append("</"+key+">")
+        xml_string.append("</"+tag+">")  
+        return xml_string
+       
     '''
      Turns log object into json object and returns the json string
     '''

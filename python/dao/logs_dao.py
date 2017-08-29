@@ -67,7 +67,7 @@ class LogDAO(BiocoreDOM):
         for key,val in self.log_object_to_dict(logObject).items():
             xml_elem_child= Element(key)
             if "remote_files" in key: val=','.join(val)
-            xml_elem_child.text="<![CDATA["+str(val)+"]]>"
+            xml_elem_child.text='<![CDATA['+str(val)+"]]>"
             xml_elem.append(xml_elem_child)
         return xml_elem
     

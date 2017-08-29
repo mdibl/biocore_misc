@@ -25,6 +25,18 @@ class BiocoreDOM:
         self.current_external_software=[]
         self.current_logs= []
         self.set_biocore()
+        
+        self.logFieldLabel={}
+        self.logFieldLabel["name"]="Source Name"
+        self.logFieldLabel["version"]="Version"
+        self.logFieldLabel["dataset"]="Dataset"
+        self.logFieldLabel["download_starts"]="Download Started"
+        self.logFieldLabel["download_ends"]="Donload Ended"
+        self.logFieldLabel["remote_site"]="Remote Site"
+        self.logFieldLabel["remote_directory"]="Remote Directory"
+        self.logFieldLabel["remote_files"]="Remote Files"
+        self.logFieldLabel["local_directory"]="Local Directory"
+        self.logFieldLabel["wget_log_file"]="Path To Log"
  
     def set_biocore(self):
         if isdir(self.external_data_dir):

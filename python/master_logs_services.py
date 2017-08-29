@@ -3,7 +3,6 @@
 from dao.logs_dao import LogDAO
 from shutil import copyfile
 from os.path import isfile
-from xml.etree.ElementTree import tostring
 
 '''
 Uses actions define in LogDAO to generate 
@@ -43,7 +42,7 @@ class MasterLogServices(LogDAO):
             for version in target_logs:
                 for log_file in target_logs[version]:
                      logObject=self.get_log_object(source,log_file)
-                     tokens.append(tostring(self.log_object_to_xml("source",logObject)))
+                     tokens.append("\n".join(self.log_object_to_xml("source",logObject)))
         xml_string="<?xml version='1.0' encoding='utf-8'?>\n"
         xml_string+="<sources>\n"+"\n".join(tokens)+"\n</sources>"
         fh.write(xml_string)

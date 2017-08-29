@@ -26,6 +26,18 @@ script has the following information:
 '''
 class DownloadsLogDOM:
    def __init__(self,source_name,log_file):
+       self.logLabel={}
+       self.logLabel["name"]="Source Name"
+       self.logLabel["version"]="Version"
+       self.logLabel["dataset"]="Dataset"
+       self.logLabel["download_starts"]="Download Started"
+       self.logLabel["download_ends"]="Donload Ended"
+       self.logLabel["remote_site"]="Remote Site"
+       self.logLabel["remote_directory"]="Remote Directory"
+       self.logLabel["remote_files"]="Remote Files"
+       self.logLabel["local_directory"]="Local Directory"
+       self.logLabel["wget_log_file"]="Path To Log"
+       
        self.source_name=""
        self.dataset=""
        self.download_start_date=""

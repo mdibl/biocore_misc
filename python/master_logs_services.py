@@ -33,6 +33,7 @@ class MasterLogServices(LogDAO):
                      tokens.append(self.log_object_to_json(logObject))
         json_string='{"sources":'+",\n".join(tokens)+"}"
         fh.write(json_string)
+        fh.close()
     
     def gen_master_xml_file(self):
         if isfile(self.data_downloads_log_xml):
@@ -49,7 +50,9 @@ class MasterLogServices(LogDAO):
         xml_string="<?xml version='1.0' encoding='utf-8'?>\n"
         xml_string+="<sources>\n"+"\n".join(tokens)+"\n</sources>"
         fh.write(xml_string)
-
+        fh.close()
+        
 if __name__== "__main__":
-    myLogs=MasterLogServices()
-    myLogs.gen_master_json_file()
+    mLogs=MasterLogServices()
+    mLogs.gen_master_json_file()
+    mLogs.gen_master_json_file()

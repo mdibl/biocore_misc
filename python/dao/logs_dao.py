@@ -2,8 +2,7 @@
 
 from dom.biocore_config import BiocoreDOM
 from dom.data_download_log_dom import DownloadsLogDOM
-#from xml.etree.ElementTree import Element,dump,iselement
-from lxml import etree
+from xml.etree.ElementTree import Element
 import sys,json
 from os import listdir
 from os.path import isfile, isdir,join
@@ -64,11 +63,11 @@ class LogDAO(BiocoreDOM):
      It calls og_object_to_dict.
     '''
     def log_object_to_xml(self,tag,logObject):
-        xml_elem = etree.Element(tag)
+        xml_elem = Element(tag)
         for key,val in self.log_object_to_dict(logObject).items():
-            xml_elem_child= etree.Element(key)
+            xml_elem_child= Element(key)
             if "remote_files" in key: val=','.join(val)
-            xml_elem_child.text=etree.CDATA(str(val))
+            xml_elem_child.text=str(val)
             xml_elem.append(xml_elem_child)
         return xml_elem
     
@@ -78,12 +77,3 @@ class LogDAO(BiocoreDOM):
     def log_object_to_json(self,logObject):
         return  json.dumps(self.log_object_to_dict(logObject))
     
-if __name__== "__main__":
-    myLogDAO=LogDAO()
-    for source in myLogDAO.current_sources:
-        target_logs=myLogDAO.get_logs(source)
-        for version in target_logs:
-            for log_file in target_logs[version]:
-                 logObject=myLogDAO.get_log_object(source,log_file)
-                 print myLogDAO.log_object_to_json(logObject)
-

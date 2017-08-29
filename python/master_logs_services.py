@@ -16,7 +16,6 @@ class MasterLogServices(LogDAO):
     def __init__(self):
         LogDAO.__init__(self)
         
-    
     def gen_master_json_file(self):
         if isfile(self.data_downloads_log_json):
            old_file=self.data_downloads_log_json+".old"

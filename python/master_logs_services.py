@@ -47,8 +47,54 @@ class MasterLogServices(LogDAO):
         xml_string+="<sources>\n"+"\n".join(tokens)+"\n</sources>"
         fh.write(xml_string)
         fh.close()
+    
+    def gen_log_table(self,source,source_block):
+        table=[]
+        for version,datasets in source_block.items():
+            if version is None: version=""
+            table.append("<table class='table'><caption>"+source+":"+version+"</caption>")
+            for dataset,data in datasets.items():
+                table.append("<tr><th colspan='2'>"+dataset+"</th></tr>")
+                for label,val in sorted(data.items()):
+                    if val is None:val=""
+                    table.append("<tr><th>"+label+"</th><tr><td>"+val+"</td></tr>")
+            table.append("</table>")
+        return table
+
+    def get_version_block(self,source_entries):
+        block={}
+        for dataset_xml_element in source_entries:
+            version=dataset_xml_element.find("./version")
+            dataset=dataset_xml_element.find("./dataset")
+            if not version.text in block: block[version.text]={}
+            if not dataset.text in block[version.text]: block[version.text][dataset.text]={}
+            for node in dataset_xml_element:
+                label=node.attrib['label']
+                block[version.text][dataset.text][label]=node.text
+
+        return block
         
+    def gen_master_html_file(self):
+        if not isfile(self.data_downloads_log_xml):self.gen_master_xml_file()
+        xmldoc_root=self.getXmlDocRoot(self.data_downloads_log_xml)
+        if xmldoc_root is not None:
+            if isfile(self.data_downloads_log_html):
+                old_file=self.data_downloads_log_html+".old"
+                copyfile(self.data_downloads_log_html, old_file)
+            try:
+                fh=open(self.data_downloads_log_html,"w")
+                fh.write("<!DOCTYPE html>\n")
+                fh.write("<html><body>\n")
+                for source in self.current_sources:
+                    log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
+                    source_block=self.get_version_block(log_entries)
+                    fh.write("\n".join(self.gen_log_table(source,source_block)))
+                fh.write("</body></html>")
+                fh.close()
+            except:raise
 if __name__== "__main__":
     mLogs=MasterLogServices()
     mLogs.gen_master_json_file()
     mLogs.gen_master_xml_file()
+    mLogs.gen_master_html_file()
+    

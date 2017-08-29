@@ -16,6 +16,7 @@ from os.path import isfile, isdir,join
 class LogDAO(BiocoreDOM):
     def __init__(self):
         BiocoreDOM.__init__(self)
+        
     
     '''
      Returns a list of log files generated from this source downloads

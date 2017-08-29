@@ -3,7 +3,8 @@
 from dao.logs_dao import LogDAO
 from shutil import copyfile
 
-from os.path import isfile, isdir,join
+from os.path import isfile
+from xml.etree.ElementTree import tostring
 
 '''
 
@@ -46,7 +47,7 @@ class MasterLogServices(LogDAO):
             for version in target_logs:
                 for log_file in target_logs[version]:
                      logObject=self.get_log_object(source,log_file)
-                     tokens.append(self.log_object_to_xml(logObject))
+                     tokens.append(tostring(self.log_object_to_xml("source",logObject)))
         xml_string="<?xml version='1.0' encoding='utf-8'?>\n"
         xml_string+="<sources>\n"+"\n".join(tokens)+"\n</sources>"
         fh.write(xml_string)
@@ -55,4 +56,4 @@ class MasterLogServices(LogDAO):
 if __name__== "__main__":
     mLogs=MasterLogServices()
     mLogs.gen_master_json_file()
-    mLogs.gen_master_json_file()
+    mLogs.gen_master_xml_file()

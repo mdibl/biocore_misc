@@ -2,6 +2,7 @@
 
 from os import listdir
 from os.path import join,isdir,isfile
+import xml.etree.ElementTree as ET
 
 '''
 A base class that sets the path to biocore info  
@@ -44,3 +45,14 @@ class BiocoreDOM:
             self.current_sources=[d for d in listdir(self.external_data_dir) if isdir(join(self.external_data_dir,d))]
         if isdir(self.data_downloads_log_dir):
             self.current_logs= [f for f in listdir(self.data_downloads_log_dir) if isfile(join(self.data_downloads_log_dir,f))]
+    
+    def getXmlDocRoot(self,xml_file):
+        doc_root=None
+        if not isfile(xml_file): 
+            print("File does not exist "+xml_file )
+            return doc_root
+        try:
+            xml_doc=ET.parse(xml_file)
+            doc_root=xml_doc.getroot()
+        except:pass
+        return doc_root

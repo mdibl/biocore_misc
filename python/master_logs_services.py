@@ -2,19 +2,16 @@
 
 from dao.logs_dao import LogDAO
 from shutil import copyfile
-
 from os.path import isfile
 from xml.etree.ElementTree import tostring
 
 '''
-
 Uses actions define in LogDAO to generate 
   master log files containing downloads info for
 all source. The files are generated in both
 xml and json formats 
 
 '''
- 
 class MasterLogServices(LogDAO):
     def __init__(self):
         LogDAO.__init__(self)

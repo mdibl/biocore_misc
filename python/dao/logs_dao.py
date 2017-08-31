@@ -37,6 +37,24 @@ class LogDAO(BiocoreDOM):
         return target_logs
     
     '''
+     Returns a map of sources with associated versions
+    '''
+    def get_source(self):
+        sources={}
+        for log_file in self.current_logs:
+            if "getAnnotations" in log_file: 
+                try:
+                    tokens=log_file.split('.')
+                    release=tokens[3]
+                    source=tokens[2]
+                    dataset=tokens[4]
+                    if source not in sources: sources[source]={}
+                    if release not in sources[source]: sources[source][release]=[]
+                    sources[source][release].append(dataset)
+                    
+                except:pass
+        return sources
+    '''
      Returns the object representation of data in the specified log file
     '''
     def get_log_object(self,source,log_file):

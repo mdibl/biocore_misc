@@ -63,7 +63,7 @@ class MasterLogServices(LogDAO):
                     version_data+="<dl class='row'><dt class='col-xs-12 col-sm-4'>"+label
                     version_data+="</dt><dd class='col-xs-12 col-sm-8'>"+val+"</dd></dl>"
                 version_data+="</div>"
-            table.append(datasets_nav)
+            table.append(datasets_nav+"</nav>")
             table.append(version_data)
             table.append("</div>")
         return table

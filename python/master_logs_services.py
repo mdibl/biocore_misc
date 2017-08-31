@@ -52,13 +52,13 @@ class MasterLogServices(LogDAO):
         table=[]
         for version,datasets in source_block.items():
             if version is None: version=""
-            table.append("<table class='table'><caption>"+source+":"+version+"</caption>")
+            table.append("<div class='col-xs-12'><h2>"+source+":"+version+"</h2>")
             for dataset,data in datasets.items():
-                table.append("<tr><td colspan='2'>"+dataset+"</td></tr>")
+                table.append("<div class='col-xs-12'><h4>"+dataset+"</h4></div>")
                 for label,val in sorted(data.items()):
                     if val is None:val=""
-                    table.append("<tr><th>"+label+"</th><td>"+val+"</td></tr>")
-            table.append("</table>")
+                    table.append("<div class='row'><div class='col-xs-12 col-sm-4'>"+label+"</div><div class='col-xs-12 col-sm-8'>"+val+"</div></div>")
+            table.append("</div>")
         return table
 
     def get_version_block(self,source_entries):

@@ -48,6 +48,14 @@ class MasterLogServices(LogDAO):
         fh.write(xml_string)
         fh.close()
     
+    def gen_main_nav(self):
+        nav=[]
+        sources=self.get_source()
+        for source,versions in self.get_source().items():
+            for version,datasets in versions.items():
+                nav.append("<li class='list-group-item'><a href='#"+source+version+"'>"+source:version+"</a></li>")
+        return "<nav class='col-xs-12'><ul>"+"\n".join(nav)+"</ul></nav>"     
+      
     def gen_log_table(self,source,source_block):
         table=[]
         for version,datasets in source_block.items():
@@ -104,6 +112,7 @@ class MasterLogServices(LogDAO):
                 fh.write("\n"+'<link rel="stylesheet" href="/css/style.css">')
                 fh.write("\n</head>")
                 fh.write("\n<body>\n")
+                fh.write(self.gen_main_nav())
                 for source in self.current_sources:
                     log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
                     source_block=self.get_version_block(log_entries)

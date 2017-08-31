@@ -57,7 +57,7 @@ class MasterLogServices(LogDAO):
                 table.append("<div class='col-xs-12'><h4>"+dataset+"</h4></div>")
                 for label,val in sorted(data.items()):
                     if val is None:val=""
-                    table.append("<div class='row'><div class='col-xs-12 col-sm-4'>"+label+"</div><div class='col-xs-12 col-sm-8'>"+val+"</div></div>")
+                    table.append("<dl class='row'><dt class='col-xs-12 col-sm-4'>"+label+"</dt><dd class='col-xs-12 col-sm-8'>"+val+"</dd></dl>")
             table.append("</div>")
         return table
 

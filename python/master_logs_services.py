@@ -57,7 +57,7 @@ class MasterLogServices(LogDAO):
                 table.append("<tr><th colspan='2'>"+dataset+"</th></tr>")
                 for label,val in sorted(data.items()):
                     if val is None:val=""
-                    table.append("<tr><th>"+label+"</th><tr><td>"+val+"</td></tr>")
+                    table.append("<tr><th>"+label+"</th><td>"+val+"</td></tr>")
             table.append("</table>")
         return table
 
@@ -83,7 +83,12 @@ class MasterLogServices(LogDAO):
                 copyfile(self.data_downloads_log_html, old_file)
             try:
                 fh=open(self.data_downloads_log_html,"w")
-                fh.write("<!DOCTYPE html>\n")
+                fh.write("<!DOCTYPE html>\n<html>")
+                fh.write("<head>")
+                fh.write('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">')   
+                fh.write('<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lato:400,700" rel="stylesheet">')
+                fh.write('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">')
+                fh.write("</head>")
                 fh.write("<html><body>\n")
                 for source in self.current_sources:
                     log_entries=xmldoc_root.findall("./source/[name='"+source+"']")

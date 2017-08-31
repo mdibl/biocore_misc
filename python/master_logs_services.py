@@ -61,11 +61,13 @@ class MasterLogServices(LogDAO):
                 for label,val in sorted(data.items()):
                     if val is None:val=""
                     version_data+="<dl class='row'><dt class='col-xs-12 col-sm-4'>"+label
-                    file_list=val.split(",")
-                    files_ul="<ol>"
-                    for token in file_list: files_ul+="\n<li class='list-group_item'>"+token+"</li>"
-                    files_ul+="</ol>"
-                    version_data+="</dt><dd class='col-xs-12 col-sm-8'>"+files_ul+"</dd></dl>"
+                    if "Remote Files" in label:
+                        file_list=val.split(",")
+                        files_ul="<ol>"
+                        for token in file_list: files_ul+="\n<li class='list-group_item'>"+token+"</li>"
+                        files_ul+="</ol>"
+                        val=files_ul
+                    version_data+="</dt><dd class='col-xs-12 col-sm-8'>"+val+"</dd></dl>"
                 version_data+="</div>"
             table.append(datasets_nav+"</nav>")
             table.append(version_data)

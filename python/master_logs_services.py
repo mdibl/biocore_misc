@@ -113,14 +113,14 @@ class MasterLogServices(LogDAO):
                 fh.write("\n"+'<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">')
                 fh.write("\n"+'<link rel="stylesheet" href="/css/style.css">')
                 fh.write("\n</head>")
-                fh.write("\n<body>\n")
-                fh.write("<h1>External Data </h1>\n")
+                fh.write("\n<body><div class='container'>\n")
+                fh.write("<div class='col-xs-12 container-header'><h1>External Data </h1></div>\n")
                 fh.write(self.gen_main_nav())
                 for source in sorted(self.current_sources):
                     log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
                     source_block=self.get_version_block(log_entries)
                     fh.write("\n".join(self.gen_log_table(source,source_block)))
-                fh.write("</body></html>")
+                fh.write("</div></body></html>")
                 fh.close()
             except:raise
     

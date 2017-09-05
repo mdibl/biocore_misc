@@ -78,7 +78,7 @@ class MasterLogServices(LogDAO):
                         files_ul+="</ol>"
                         val=files_ul
                     version_data+="</dt><dd class='col-xs-12 col-sm-8'>"+val+"</dd></dl>"
-                version_data+="</div>"
+                version_data+="</div><nav class='back-to-top'><a href=''>Back to top</a></nav>"
             table.append(datasets_nav+"</nav>")
             table.append(version_data)
             table.append("</div>")

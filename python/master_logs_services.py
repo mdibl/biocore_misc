@@ -65,7 +65,7 @@ class MasterLogServices(LogDAO):
             src_version=source+":"+version
             table.append("<div class='col-xs-12 container'><a id='"+src_version+"'></a><h2>"+src_version+"</h2>")
             version_data=""
-            for dataset,data in datasets.items():
+            for dataset,data in sorted(datasets.items()):
                 datasets_nav+="<a href='#"+dataset+"'>"+dataset+" | </a>"
                 version_data+="<div class='col-xs-12 dataset'><a id='"+dataset+"'></a><h4>"+dataset+"</h4>"
                 for label,val in sorted(data.items()):

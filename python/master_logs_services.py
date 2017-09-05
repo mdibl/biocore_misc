@@ -55,6 +55,7 @@ class MasterLogServices(LogDAO):
         for source,versions in self.get_source_releases().items():
             #for version,datasets in versions.items():
             for version in versions:
+                if version is None: version=""
                 src_version=source+":"+version
                 nav.append("<li class='list-group-item'><a href='#"+src_version+"'>"+src_version+"</a></li>")
         return "<nav class='col-xs-12'><ul>"+"\n".join(nav)+"</ul></nav>"     

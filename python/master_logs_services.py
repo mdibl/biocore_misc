@@ -73,10 +73,8 @@ class MasterLogServices(LogDAO):
                     version_data+="<dl class='row'><dt class='col-xs-12 col-sm-4'>"+label
                     if "Remote Files" in label:
                         files_ul="<ol>"
-                        if ',' in val:
-                            file_list=val.split(",")
-                            for token in file_list: files_ul+="\n<li class='list-group_item'>"+token+"</li>"
-                        else: files_ul+="\n<li class='list-group_item'>"+val+"</li>"
+                        file_list=val.split(",")
+                        for token in file_list: files_ul+="\n<li class='list-group_item'>"+token+"</li>"
                         files_ul+="</ol>"
                         val=files_ul
                     version_data+="</dt><dd class='col-xs-12 col-sm-8'>"+val+"</dd></dl>"

@@ -64,8 +64,7 @@ class DownloadsLogDOM:
                     if not "==" in line:block.append(line)
                     else:
                         if len(block)<=0:continue
-                        #if "Remote files:" in block:self.remote_files=block[1:len(block)-1]
-                        if "Remote files:" in block:self.remote_files=block
+                        if "Remote files:" in block:self.remote_files=block[1:len(block)]
                         else:
                             self.set_log(block)  
                         block=[]

@@ -35,10 +35,10 @@ class BiocoreDOM:
         self.logFieldLabel["download_starts"]="Download Started"
         self.logFieldLabel["download_ends"]="Donload Ended"
         self.logFieldLabel["remote_site"]="Remote Site"
-        self.logFieldLabel["remote_directory"]="Remote Directory"
+        self.logFieldLabel["remote_directory"]="Remote Path To Data"
         self.logFieldLabel["remote_files"]="Remote Files"
-        self.logFieldLabel["local_directory"]="Local Directory"
-        self.logFieldLabel["wget_log_file"]="Path To Log"
+        self.logFieldLabel["local_directory"]="Local Path To Data"
+        self.logFieldLabel["wget_log_file"]="Local Path To Logs"
  
     def set_biocore(self):
         if isdir(self.external_data_dir):

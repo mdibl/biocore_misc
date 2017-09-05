@@ -133,7 +133,7 @@ class MasterLogServices(LogDAO):
         xmldoc_root=self.getXmlDocRoot(self.data_downloads_log_xml)
         for source in self.current_sources:
             log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
-            sources[source]=get_version_block(log_entries).keys()
+            sources[source]=self.get_version_block(log_entries).keys()
         return sources
 
 if __name__== "__main__":

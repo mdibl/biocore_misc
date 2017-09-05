@@ -114,6 +114,7 @@ class MasterLogServices(LogDAO):
                 fh.write("\n"+'<link rel="stylesheet" href="/css/style.css">')
                 fh.write("\n</head>")
                 fh.write("\n<body>\n")
+                fh.write("<h1>External Data </h1>\n")
                 fh.write(self.gen_main_nav())
                 for source in sorted(self.current_sources):
                     log_entries=xmldoc_root.findall("./source/[name='"+source+"']")

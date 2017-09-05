@@ -55,7 +55,7 @@ class MasterLogServices(LogDAO):
                 if version is None: version=""
                 src_version=source+":"+version
                 nav.append("<li class='nav-list'><a href='#"+src_version+"'>"+src_version+"</a></li>")
-        return "<nav class='col-xs-12'><ul>"+"\n".join(nav)+"</ul></nav>"     
+        return "<nav class='col-xs-12'><ol>"+"\n".join(nav)+"</ol></nav>"     
       
     def gen_log_table(self,source,source_block):
         table=[]

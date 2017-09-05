@@ -115,7 +115,7 @@ class MasterLogServices(LogDAO):
                 fh.write("\n</head>")
                 fh.write("\n<body>\n")
                 fh.write(self.gen_main_nav())
-                for source in self.current_sources:
+                for source in sorted(self.current_sources):
                     log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
                     source_block=self.get_version_block(log_entries)
                     fh.write("\n".join(self.gen_log_table(source,source_block)))

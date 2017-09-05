@@ -51,8 +51,10 @@ class MasterLogServices(LogDAO):
     def gen_main_nav(self):
         nav=[]
         sources=self.get_source()
-        for source,versions in self.get_source().items():
-            for version,datasets in versions.items():
+        #for source,versions in self.get_source().items():
+        for source,versions in self.get_source_releases().items():
+            #for version,datasets in versions.items():
+            for version in versions:
                 src_version=source+":"+version
                 nav.append("<li class='list-group-item'><a href='#"+src_version+"'>"+src_version+"</a></li>")
         return "<nav class='col-xs-12'><ul>"+"\n".join(nav)+"</ul></nav>"     
@@ -122,6 +124,18 @@ class MasterLogServices(LogDAO):
                 fh.write("</body></html>")
                 fh.close()
             except:raise
+    
+    '''
+     Returns a map of sources with associated versions
+    '''
+    def get_source_releases(self):
+        sources={}
+        xmldoc_root=self.getXmlDocRoot(self.data_downloads_log_xml)
+        for source in self.current_sources:
+            log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
+            sources[source]=get_version_block(log_entries).keys()
+        return sources
+
 if __name__== "__main__":
     mLogs=MasterLogServices()
     mLogs.gen_master_json_file()

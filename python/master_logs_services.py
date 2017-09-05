@@ -53,7 +53,8 @@ class MasterLogServices(LogDAO):
         sources=self.get_source()
         for source,versions in self.get_source().items():
             for version,datasets in versions.items():
-                nav.append("<li class='list-group-item'><a href='#"+source+""+version+"'>"+source+":"+version+"</a></li>")
+                src_version=source+":"+version
+                nav.append("<li class='list-group-item'><a href='#"+src_version+"'>"+src_version+"</a></li>")
         return "<nav class='col-xs-12'><ul>"+"\n".join(nav)+"</ul></nav>"     
       
     def gen_log_table(self,source,source_block):
@@ -61,7 +62,8 @@ class MasterLogServices(LogDAO):
         for version,datasets in source_block.items():
             if version is None: version=""
             datasets_nav="<nav>"
-            table.append("<div class='col-xs-12 container'><h2>"+source+":"+version+"</h2>")
+            src_version=source+":"+version
+            table.append("<div class='col-xs-12 container'><a id='"+src_version+"'></a><h2>"+src_version+"</h2>")
             version_data=""
             for dataset,data in datasets.items():
                 datasets_nav+="<a href='#"+dataset+"'>"+dataset+" | </a>"

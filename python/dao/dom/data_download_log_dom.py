@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from os.path import isfile
+from os.path import isfile,dirname
 
 '''
 
@@ -52,7 +52,7 @@ class DownloadsLogDOM:
             elif "Remote site:" in token:self.remote_site=tokens[1] 
             elif "Remote directory:" in token:self.remote_directory=tokens[1] 
             elif "Local directory:" in token:self.local_directory=tokens[1] 
-            elif "log:" in token:self.wget_log_file=tokens[1] 
+            elif "log:" in token:self.wget_log_file=dirname(tokens[1])
   
    def set_log_dom(self,log_file):   
         if isfile(log_file):

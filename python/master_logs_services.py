@@ -50,10 +50,7 @@ class MasterLogServices(LogDAO):
     
     def gen_main_nav(self):
         nav=[]
-        sources=self.get_source()
-        #for source,versions in self.get_source().items():
         for source,versions in self.get_source_releases().items():
-            #for version,datasets in versions.items():
             for version in versions:
                 if version is None: version=""
                 src_version=source+":"+version

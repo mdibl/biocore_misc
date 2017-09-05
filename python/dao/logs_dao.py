@@ -67,8 +67,7 @@ class LogDAO(BiocoreDOM):
         xml_elem = Element(tag)
         for key,val in self.log_object_to_dict(logObject).items():
             xml_elem_child= Element(key)
-            if "remote_files" in key: 
-                if ',' in val:val=','.join(val)
+            if "remote_files" in key: val=','.join(val)
             xml_elem_child.text=str(val)
             xml_elem.append(xml_elem_child)
         return xml_elem
@@ -81,8 +80,7 @@ class LogDAO(BiocoreDOM):
         xml_string =[]
         xml_string.append("<"+tag+">")
         for key,val in self.log_object_to_dict(logObject).items():
-            if "remote_files" in key: 
-                if ',' in val:val=','.join(val)
+            if "remote_files" in key: val=','.join(val)
             label=' label="'+self.logFieldLabel[key]+'"'
             xml_string.append("<"+key+label+"><![CDATA["+str(val)+"]]>"+"</"+key+">")
         xml_string.append("</"+tag+">")  

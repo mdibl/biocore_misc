@@ -48,14 +48,31 @@ class MasterLogServices(LogDAO):
         fh.write(xml_string)
         fh.close()
     
+    def get_download_date(self,source,version):
+        xmldoc_root=self.getXmlDocRoot(self.data_downloads_log_xml)
+        download_date=""
+        log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
+        if version is None:version=""
+        for source_entry in log_entries:
+            if source_entry.findall("./[version='"+version+"']"):
+                for dataset in source_entry.findall("./[version='"+version+"']"):
+                    download_date=dataset.find("./download_starts").text
+        return download_date
+
+        
     def gen_main_nav(self):
         nav=[]
         for source,versions in sorted(self.get_source_releases().items()):
-            for version, download_date in versions.items():
+            for version in versions:
                 if version is None: version=""
                 src_version=source+":"+version
-                nav.append("<li class='nav-list'><a href='#"+src_version+"'>"+src_version+"</a>"+download_date+"</li>")
-        return "<nav class='col-xs-12'><ol>"+"\n".join(nav)+"</ol></nav>"     
+                date_fields=self.get_download_date(source,version).split(' ')
+                download_date=' '.join(date_fields[0:3])
+                download_date+=", "+date_fields[len(date_fields)-1]
+                dl="<dl class='row'><dt class='col-xs-4'><a href='#"+src_version+"'>"+src_version+"</a></dt>"
+                dl+="<dd class='col-xs-8'><b>Date: </b> "+download_date+"</dd></dl>"
+                nav.append(dl)
+        return "<nav class='col-xs-12'><div class='nav-list'>"+"\n".join(nav)+"</div></nav>"     
       
     def gen_log_table(self,source,source_block):
         table=[]
@@ -132,11 +149,7 @@ class MasterLogServices(LogDAO):
         xmldoc_root=self.getXmlDocRoot(self.data_downloads_log_xml)
         for source in self.current_sources:
             log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
-            for version in self.get_version_block(log_entries).keys(): 
-                version_data=log_entries[0].find("./[version='"+version+"']")
-                if source not in sources: sources[source]={}
-                download_date=version_data[0].find("./download_starts")
-                sources[source][version]=download_date.text
+            sources[source]=self.get_version_block(log_entries).keys()
         return sources
 
 if __name__== "__main__":

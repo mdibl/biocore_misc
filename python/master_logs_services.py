@@ -51,10 +51,10 @@ class MasterLogServices(LogDAO):
     def gen_main_nav(self):
         nav=[]
         for source,versions in sorted(self.get_source_releases().items()):
-            for version in versions:
+            for version, download_date in versions.items():
                 if version is None: version=""
                 src_version=source+":"+version
-                nav.append("<li class='nav-list'><a href='#"+src_version+"'>"+src_version+"</a></li>")
+                nav.append("<li class='nav-list'><a href='#"+src_version+"'>"+src_version+"</a>"+download_date+"</li>")
         return "<nav class='col-xs-12'><ol>"+"\n".join(nav)+"</ol></nav>"     
       
     def gen_log_table(self,source,source_block):
@@ -133,7 +133,10 @@ class MasterLogServices(LogDAO):
         for source in self.current_sources:
             log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
             for version in self.get_version_block(log_entries).keys(): 
-                sources[source][version]=""
+                version_data=log_entries.findall("./[version='"+version+"']")
+                if source not in sources: sources[source]={}
+                download_date=version_data.find("./download_starts")
+                sources[source][version]=download_date.text
         return sources
 
 if __name__== "__main__":

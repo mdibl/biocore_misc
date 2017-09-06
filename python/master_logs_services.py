@@ -133,7 +133,7 @@ class MasterLogServices(LogDAO):
         for source in self.current_sources:
             log_entries=xmldoc_root.findall("./source/[name='"+source+"']")
             for version in self.get_version_block(log_entries).keys(): 
-                version_data=log_entries.findall("./[version='"+version+"']")
+                version_data=log_entries.find("./[version='"+version+"']")
                 if source not in sources: sources[source]={}
                 download_date=version_data.find("./download_starts")
                 sources[source][version]=download_date.text

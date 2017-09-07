@@ -9,7 +9,7 @@ A repos to store bioadmin miscellaneous scripts
   * ssh to lintilla
     * cd to /opt/software/external/jenkins
     * rm -f jenkins.war.bak
-    * cp -p jenkins.war jenkins.war.bak
+    * mv jenkins.war jenkins.war.bak
     * wget "http://updates.jenkins-ci.org/download/war/new_release_number/jenkins.war
   * Go back to jenkins web server
     * Click on "Manage Jenkins" (you should see the option to upgrade automatically)

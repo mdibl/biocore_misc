@@ -6,9 +6,9 @@ from os.path import isfile
 
 '''
 Uses actions define in LogDAO to generate 
-  master log files containing downloads info for
-all source. The files are generated in both
-xml and json formats 
+master log files containing downloads info for
+all source. The files are generated in
+html, xml and json formats 
 
 '''
 class MasterLogServices(LogDAO):

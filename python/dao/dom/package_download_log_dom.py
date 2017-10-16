@@ -47,7 +47,7 @@ class PackageDownloadsLogDOM:
        self.git_repos=""
        self.git_url=""
        self.logLabels={}
-
+       self.set_log_labels()
        self.set_log_dom(log_file)
 
    def set_log_labels(self):

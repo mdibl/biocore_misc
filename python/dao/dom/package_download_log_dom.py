@@ -46,20 +46,8 @@ class PackageDownloadsLogDOM:
        self.git_organization=""
        self.git_repos=""
        self.git_url=""
-       self.logLabels={}
-       self.set_log_labels()
        self.set_log_dom(log_file)
 
-   def set_log_labels(self):
-       self.logLabels["package_name"]="Package Name"
-       self.logLabels["package_version"]="Package Version"
-       self.logLabels["install_date"]="Install Date"
-       self.logLabels["remote_site"]="Remote Site"
-       self.logLabels["install_directory"]="Install Directory"
-       self.logLabels["path_to_logs"]="Path To Logs"
-       self.logLabels["git_organization"]="Git Organization"
-       self.logLabels["git_repos"]="Git Repos"
-       self.logLabels["git_url"]="Git Url"
 
    def set_log(self,block):
         for token in block:

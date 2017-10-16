@@ -29,6 +29,22 @@ class BiocoreDOM:
         self.set_biocore()
         
         self.logFieldLabel={}
+        self.package_log_labels={}
+        self.set_package_log_labels()
+        self.set_download_log_labels()
+
+     def set_package_log_labels(self):
+       self.package_log_labels["package_name"]="Package Name"
+       self.package_log_labels["package_version"]="Package Version"
+       self.package_log_labels["install_date"]="Install Date"
+       self.package_log_labels["remote_site"]="Remote Site"
+       self.package_log_labels["install_directory"]="Install Directory"
+       self.package_log_labels["path_to_logs"]="Path To Logs"
+       self.package_log_labels["git_organization"]="Git Organization"
+       self.package_log_labels["git_repos"]="Git Repos"
+       self.package_log_labels["git_url"]="Git Url"
+
+    def set_download_log_labels(self):
         self.logFieldLabel["name"]="Source Name"
         self.logFieldLabel["version"]="Version"
         self.logFieldLabel["dataset"]="Dataset"

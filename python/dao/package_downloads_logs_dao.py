@@ -20,6 +20,20 @@ class PackageLogDAO(BiocoreDOM):
         
     
     '''
+     Returns a list of log files generated from this source downloads
+     stored by version where applicable
+    '''
+    def get_logs(self,package):
+        target_logs=[]
+        for file_token in self.current_package_logs:
+            if package in file_token and "runDownload" in file_token:
+                try:
+                    target_logs.append(join(self.package_downloads_log_dir,file_token))
+                except:
+                    print("Failed because of: ",sys.exc_info()[0])
+                    raise
+        return target_logs
+    '''
      Returns the object representation of data in the specified log file
     '''
     def get_log_object(self,log_file):

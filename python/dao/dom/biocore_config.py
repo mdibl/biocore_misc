@@ -16,6 +16,7 @@ class BiocoreDOM:
         self.internal_software_dir="/opt/software/internal"
    
         self.log_dir="/data/logs"
+        self.package_downloads_log_dir="/data/logs/package_downloads"
         self.data_downloads_log_dir="/data/logs/data_downloads"
         self.data_downloads_log_json=self.data_downloads_log_dir+"/master_log.json"
         self.data_downloads_log_xml=self.data_downloads_log_dir+"/master_log.xml"
@@ -26,6 +27,7 @@ class BiocoreDOM:
         self.current_sources=[]
         self.current_external_software=[]
         self.current_logs= []
+        self.current_package_logs= []
         self.set_biocore()
         
         self.logFieldLabel={}
@@ -33,7 +35,7 @@ class BiocoreDOM:
         self.set_package_log_labels()
         self.set_download_log_labels()
 
-     def set_package_log_labels(self):
+    def set_package_log_labels(self):
        self.package_log_labels["package_name"]="Package Name"
        self.package_log_labels["package_version"]="Package Version"
        self.package_log_labels["install_date"]="Install Date"
@@ -61,7 +63,12 @@ class BiocoreDOM:
             self.current_sources=[d for d in listdir(self.external_data_dir) if isdir(join(self.external_data_dir,d))]
         if isdir(self.data_downloads_log_dir):
             self.current_logs= [f for f in listdir(self.data_downloads_log_dir) if isfile(join(self.data_downloads_log_dir,f))]
-    
+        
+        if isdir(self.external_software_dir):
+            self.current_external_software=[d for d in listdir(self.external_software_dir) if isdir(join(self.external_software_dir,d))]
+        if isdir(self.data_downloads_log_dir):
+            self.current_package_logs= [f for f in listdir(self.package_downloads_log_dir) if isfile(join(self.package_downloads_log_dir,f))]
+  
     def getXmlDocRoot(self,xml_file):
         doc_root=None
         if not isfile(xml_file): 

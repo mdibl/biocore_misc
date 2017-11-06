@@ -52,7 +52,8 @@ INSTALL_DIR=$4
 #Url to private repository
 GIT_URL=https://api.github.com/repos/$ORG/$REPO/tarball/$TAG
 #Local tag directory
-TAG_DIR=$REPO-$TAG
+tag_base=`basename $TAG`
+TAG_DIR=$REPO-$tag_base
 LOG_DIR=$WORKING_DIR/logs
 
 if [ ! -d $LOG_DIR ]

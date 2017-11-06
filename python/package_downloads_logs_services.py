@@ -147,7 +147,10 @@ class MasterLogServices(PackageLogDAO):
 
 if __name__== "__main__":
     mLogs=MasterLogServices()
+    print "Generating master json"
     mLogs.gen_master_json_file()
+    print "Generating master xml"
     mLogs.gen_master_xml_file()
+    print "Generating master html"
     mLogs.gen_master_html_file()
     

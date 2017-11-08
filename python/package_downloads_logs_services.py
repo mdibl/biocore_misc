@@ -112,7 +112,7 @@ class MasterLogServices(PackageLogDAO):
                 fh.write('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">')   
                 fh.write("\n"+'<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lato:400,700" rel="stylesheet">')
                 fh.write("\n"+'<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">')
-                fh.write("\n"+'<link rel="stylesheet" href="/css/style.css">')
+                fh.write("\n"+'<link rel="stylesheet" href="/reports/css/style.css">')
                 fh.write("\n</head>")
                 fh.write("\n<body><div class='container'>\n")
                 fh.write("<div class='col-xs-12 container-header'><h1>External Software Packages </h1></div>\n")

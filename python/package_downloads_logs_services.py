@@ -14,9 +14,9 @@ html, xml and json formats
 class MasterLogServices(PackageLogDAO):
     def __init__(self):
         PackageLogDAO.__init__(self)     
-        self.data_downloads_log_json=self.external_software_dir+"/package_master_log.json"
-        self.data_downloads_log_xml=self.external_software_dir+"/package_master_log.xml"
-        self.data_downloads_log_html=self.external_software_dir+"/package_master_log.html"
+        self.data_downloads_log_json=self.reports_dir+"/package_downloads/master_log.json"
+        self.data_downloads_log_xml=self.reports_dir+"/package_downloads/master_log.xml"
+        self.data_downloads_log_html=self.reports_dir+"/package_downloads/master_log.html"
         
     def gen_master_json_file(self):
         if isfile(self.data_downloads_log_json):

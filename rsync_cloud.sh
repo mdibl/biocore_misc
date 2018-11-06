@@ -20,7 +20,7 @@ dest_server="ec2-user@ec2-18-232-77-165.compute-1.amazonaws.com"
 dest_dir="/opt/software"
 
 #rsync_options="--links --ignore-errors"
-rsync_options=" -avz"
+rsync_options=" -avz --exclude=.snapshot"
 
 rsync $rsync_options $src_dir $dest_server:$dest_dir 
 

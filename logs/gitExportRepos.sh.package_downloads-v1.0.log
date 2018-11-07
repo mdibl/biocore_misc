@@ -1,0 +1,38 @@
+Mon Apr 23 16:41:55 EDT 2018
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: v1.0
+Repository: package_downloads
+Organization: mdibl
+Git url: https://api.github.com/repos/mdibl/package_downloads/tarball/v1.0
+This product will be installed under: /opt/software/internal
+Mon Apr 23 16:41:55 EDT 2018
+Cammand: /usr/bin/wget -O package_downloads-v1.0.tar.gz https://api.github.com/repos/mdibl/package_downloads/tarball/v1.0
+--2018-04-23 16:41:55--  https://api.github.com/repos/mdibl/package_downloads/tarball/v1.0
+Resolving api.github.com (api.github.com)... 192.30.253.116, 192.30.253.117
+Connecting to api.github.com (api.github.com)|192.30.253.116|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/mdibl/package_downloads/legacy.tar.gz/v1.0 [following]
+--2018-04-23 16:41:56--  https://codeload.github.com/mdibl/package_downloads/legacy.tar.gz/v1.0
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.121, 192.30.253.120
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.121|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: 'package_downloads-v1.0.tar.gz'
+
+     0K .......... .......... .......... .......... ..........  995K
+    50K .......... .......... .......... .......... .......... 1.96M
+   100K .......... .......... .......... .......... .......... 79.0M
+   150K .......... .......... .......... .......... .......... 2.00M
+   200K .......... .......... .......... .......... ..........  109M
+   250K .......... .......... .......... .......... .......... 83.6M
+   300K .......... .......... .......... .......... ..........  122M
+   350K .......... .......... .......... .......... .......... 2.01M
+   400K .......... .......... .......... .......... .......... 86.0M
+   450K .......... .......... .......... .......... .......... 72.6M
+   500K .                                                      58.6M=0.1s
+
+2018-04-23 16:41:56 (3.85 MB/s) - 'package_downloads-v1.0.tar.gz' saved [513642]
+
+Untar package_downloads-v1.0.tar.gz

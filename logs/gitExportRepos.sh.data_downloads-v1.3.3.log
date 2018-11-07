@@ -1,0 +1,28 @@
+Mon Oct  1 10:46:19 EDT 2018
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: v1.3.3
+Repository: data_downloads
+Organization: mdibl
+Git url: https://api.github.com/repos/mdibl/data_downloads/tarball/v1.3.3
+This product will be installed under: /opt/software/internal
+Mon Oct  1 10:46:19 EDT 2018
+Cammand: /usr/bin/wget -O data_downloads-v1.3.3.tar.gz https://api.github.com/repos/mdibl/data_downloads/tarball/v1.3.3
+--2018-10-01 10:46:19--  https://api.github.com/repos/mdibl/data_downloads/tarball/v1.3.3
+Resolving api.github.com (api.github.com)... 192.30.253.116, 192.30.253.117
+Connecting to api.github.com (api.github.com)|192.30.253.116|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/mdibl/data_downloads/legacy.tar.gz/v1.3.3 [following]
+--2018-10-01 10:46:19--  https://codeload.github.com/mdibl/data_downloads/legacy.tar.gz/v1.3.3
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.120, 192.30.253.121
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.120|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: 'data_downloads-v1.3.3.tar.gz'
+
+     0K .......... .....                                        478K=0.03s
+
+2018-10-01 10:46:19 (478 KB/s) - 'data_downloads-v1.3.3.tar.gz' saved [15500]
+
+Untar data_downloads-v1.3.3.tar.gz

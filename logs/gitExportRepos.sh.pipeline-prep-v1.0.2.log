@@ -1,0 +1,28 @@
+Wed Oct  3 10:17:12 EDT 2018
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: v1.0.2
+Repository: pipeline-prep
+Organization: mdibl
+Git url: https://api.github.com/repos/mdibl/pipeline-prep/tarball/v1.0.2
+This product will be installed under: /opt/software/internal
+Wed Oct  3 10:17:12 EDT 2018
+Cammand: /usr/bin/wget -O pipeline-prep-v1.0.2.tar.gz https://api.github.com/repos/mdibl/pipeline-prep/tarball/v1.0.2
+--2018-10-03 10:17:12--  https://api.github.com/repos/mdibl/pipeline-prep/tarball/v1.0.2
+Resolving api.github.com (api.github.com)... 192.30.253.117, 192.30.253.116
+Connecting to api.github.com (api.github.com)|192.30.253.117|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/mdibl/pipeline-prep/legacy.tar.gz/v1.0.2 [following]
+--2018-10-03 10:17:13--  https://codeload.github.com/mdibl/pipeline-prep/legacy.tar.gz/v1.0.2
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.120, 192.30.253.121
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.120|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: 'pipeline-prep-v1.0.2.tar.gz'
+
+     0K .......... .......... .......... .......... ......      740K=0.06s
+
+2018-10-03 10:17:13 (740 KB/s) - 'pipeline-prep-v1.0.2.tar.gz' saved [47965]
+
+Untar pipeline-prep-v1.0.2.tar.gz

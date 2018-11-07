@@ -1,0 +1,31 @@
+Wed Dec 20 13:37:15 EST 2017
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: 1.8.3
+Repository: jsoncpp
+Organization: open-source-parsers
+Git url: https://api.github.com/repos/open-source-parsers/jsoncpp/tarball/1.8.3
+This product will be installed under: /opt/software/external/jsoncpp
+Wed Dec 20 13:37:15 EST 2017
+Cammand: /usr/bin/wget -O jsoncpp-1.8.3.tar.gz https://api.github.com/repos/open-source-parsers/jsoncpp/tarball/1.8.3
+--2017-12-20 13:37:15--  https://api.github.com/repos/open-source-parsers/jsoncpp/tarball/1.8.3
+Resolving api.github.com (api.github.com)... 192.30.253.117, 192.30.253.116
+Connecting to api.github.com (api.github.com)|192.30.253.117|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/open-source-parsers/jsoncpp/legacy.tar.gz/1.8.3 [following]
+--2017-12-20 13:37:15--  https://codeload.github.com/open-source-parsers/jsoncpp/legacy.tar.gz/1.8.3
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.120, 192.30.253.121
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.120|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: ‘jsoncpp-1.8.3.tar.gz’
+
+     0K .......... .......... .......... .......... .......... 1.21M
+    50K .......... .......... .......... .......... .......... 2.44M
+   100K .......... .......... .......... .......... .......... 2.43M
+   150K .......... .......... .......... .......... ....       55.9M=0.08s
+
+2017-12-20 13:37:15 (2.34 MB/s) - ‘jsoncpp-1.8.3.tar.gz’ saved [199118]
+
+Untar jsoncpp-1.8.3.tar.gz

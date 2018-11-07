@@ -1,0 +1,38 @@
+Tue Sep 11 15:47:26 EDT 2018
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: v1.2
+Repository: package_downloads
+Organization: mdibl
+Git url: https://api.github.com/repos/mdibl/package_downloads/tarball/v1.2
+This product will be installed under: /opt/software/internal
+Tue Sep 11 15:47:26 EDT 2018
+Cammand: /usr/bin/wget -O package_downloads-v1.2.tar.gz https://api.github.com/repos/mdibl/package_downloads/tarball/v1.2
+--2018-09-11 15:47:26--  https://api.github.com/repos/mdibl/package_downloads/tarball/v1.2
+Resolving api.github.com (api.github.com)... 192.30.253.116, 192.30.253.117
+Connecting to api.github.com (api.github.com)|192.30.253.116|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/mdibl/package_downloads/legacy.tar.gz/v1.2 [following]
+--2018-09-11 15:47:26--  https://codeload.github.com/mdibl/package_downloads/legacy.tar.gz/v1.2
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.120, 192.30.253.121
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.120|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: 'package_downloads-v1.2.tar.gz'
+
+     0K .......... .......... .......... .......... ..........  726K
+    50K .......... .......... .......... .......... .......... 1.74M
+   100K .......... .......... .......... .......... .......... 48.8M
+   150K .......... .......... .......... .......... .......... 1.86M
+   200K .......... .......... .......... .......... ..........  102M
+   250K .......... .......... .......... .......... ..........  113M
+   300K .......... .......... .......... .......... .......... 1.75M
+   350K .......... .......... .......... .......... .......... 94.6M
+   400K .......... .......... .......... .......... .......... 99.5M
+   450K .......... .......... .......... .......... ..........  125M
+   500K ......                                                  152M=0.2s
+
+2018-09-11 15:47:27 (3.21 MB/s) - 'package_downloads-v1.2.tar.gz' saved [518810]
+
+Untar package_downloads-v1.2.tar.gz

@@ -1,0 +1,51 @@
+Wed Jan 31 18:00:45 EST 2018
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: 1.7
+Repository: htslib
+Organization: samtools
+Git url: https://api.github.com/repos/samtools/htslib/tarball/1.7
+This product will be installed under: /opt/software/external/htslib
+Wed Jan 31 18:00:45 EST 2018
+Cammand: /usr/bin/wget -O htslib-1.7.tar.gz https://api.github.com/repos/samtools/htslib/tarball/1.7
+--2018-01-31 18:00:45--  https://api.github.com/repos/samtools/htslib/tarball/1.7
+Resolving api.github.com (api.github.com)... 192.30.253.116, 192.30.253.117
+Connecting to api.github.com (api.github.com)|192.30.253.116|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/samtools/htslib/legacy.tar.gz/1.7 [following]
+--2018-01-31 18:00:45--  https://codeload.github.com/samtools/htslib/legacy.tar.gz/1.7
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.121, 192.30.253.120
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.121|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: 'htslib-1.7.tar.gz'
+
+     0K .......... .......... .......... .......... .......... 1001K
+    50K .......... .......... .......... .......... .......... 1.97M
+   100K .......... .......... .......... .......... .......... 57.5M
+   150K .......... .......... .......... .......... .......... 2.05M
+   200K .......... .......... .......... .......... .......... 39.9M
+   250K .......... .......... .......... .......... .......... 85.3M
+   300K .......... .......... .......... .......... .......... 2.11M
+   350K .......... .......... .......... .......... .......... 43.6M
+   400K .......... .......... .......... .......... .......... 48.6M
+   450K .......... .......... .......... .......... .......... 59.2M
+   500K .......... .......... .......... .......... .......... 74.7M
+   550K .......... .......... .......... .......... ..........  148M
+   600K .......... .......... .......... .......... .......... 92.8M
+   650K .......... .......... .......... .......... .......... 2.42M
+   700K .......... .......... .......... .......... .......... 57.9M
+   750K .......... .......... .......... .......... .......... 72.2M
+   800K .......... .......... .......... .......... .......... 77.4M
+   850K .......... .......... .......... .......... .......... 81.9M
+   900K .......... .......... .......... .......... ..........  116M
+   950K .......... .......... .......... .......... .......... 97.7M
+  1000K .......... .......... .......... .......... .......... 72.4M
+  1050K .......... .......... .......... .......... .......... 88.0M
+  1100K .......... .......... .......... .......... .......... 89.5M
+  1150K                                                        1656G=0.2s
+
+2018-01-31 18:00:46 (7.28 MB/s) - 'htslib-1.7.tar.gz' saved [1178489]
+
+Untar htslib-1.7.tar.gz

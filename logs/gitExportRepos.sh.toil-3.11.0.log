@@ -1,0 +1,49 @@
+Thu Nov  9 08:00:29 EST 2017
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: releases/3.11.0
+Repository: toil
+Organization: BD2KGenomics
+Git url: https://api.github.com/repos/BD2KGenomics/toil/tarball/releases/3.11.0
+This product will be installed under: /opt/software/external/toil
+Thu Nov  9 08:00:29 EST 2017
+Cammand: /usr/bin/wget -O toil-3.11.0.tar.gz https://api.github.com/repos/BD2KGenomics/toil/tarball/releases/3.11.0
+--2017-11-09 08:00:29--  https://api.github.com/repos/BD2KGenomics/toil/tarball/releases/3.11.0
+Resolving api.github.com (api.github.com)... 192.30.253.116, 192.30.253.117
+Connecting to api.github.com (api.github.com)|192.30.253.116|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/BD2KGenomics/toil/legacy.tar.gz/releases/3.11.0 [following]
+--2017-11-09 08:00:30--  https://codeload.github.com/BD2KGenomics/toil/legacy.tar.gz/releases/3.11.0
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.121, 192.30.253.120
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.121|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: 'toil-3.11.0.tar.gz'
+
+     0K .......... .......... .......... .......... ..........  935K
+    50K .......... .......... .......... .......... .......... 1.83M
+   100K .......... .......... .......... .......... .......... 75.3M
+   150K .......... .......... .......... .......... .......... 1.88M
+   200K .......... .......... .......... .......... .......... 71.8M
+   250K .......... .......... .......... .......... .......... 74.2M
+   300K .......... .......... .......... .......... .......... 85.9M
+   350K .......... .......... .......... .......... .......... 1.94M
+   400K .......... .......... .......... .......... .......... 71.4M
+   450K .......... .......... .......... .......... ..........  122M
+   500K .......... .......... .......... .......... .......... 88.4M
+   550K .......... .......... .......... .......... .......... 88.9M
+   600K .......... .......... .......... .......... .......... 85.6M
+   650K .......... .......... .......... .......... .......... 88.5M
+   700K .......... .......... .......... .......... .......... 2.15M
+   750K .......... .......... .......... .......... .......... 96.6M
+   800K .......... .......... .......... .......... .......... 66.6M
+   850K .......... .......... .......... .......... .......... 88.2M
+   900K .......... .......... .......... .......... .......... 87.5M
+   950K .......... .......... .......... .......... .......... 90.5M
+  1000K .......... .......... .......... .......... .......... 78.5M
+  1050K .......... .......... .......... ......                95.9M=0.2s
+
+2017-11-09 08:00:30 (6.47 MB/s) - 'toil-3.11.0.tar.gz' saved [1112559]
+
+Untar toil-3.11.0.tar.gz

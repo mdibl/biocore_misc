@@ -1,0 +1,28 @@
+Mon Jul  9 14:18:24 EDT 2018
+The path to logs is /home/bioadmin/biocore_misc/logs
+wget path: /usr/bin/wget
+tar path: /usr/bin/tar
+Tag: master
+Repository: NathanProjects
+Organization: mdibl
+Git url: https://api.github.com/repos/mdibl/NathanProjects/tarball/master
+This product will be installed under: /opt/software/internal
+Mon Jul  9 14:18:24 EDT 2018
+Cammand: /usr/bin/wget -O NathanProjects-master.tar.gz https://api.github.com/repos/mdibl/NathanProjects/tarball/master
+--2018-07-09 14:18:24--  https://api.github.com/repos/mdibl/NathanProjects/tarball/master
+Resolving api.github.com (api.github.com)... 192.30.253.116, 192.30.253.117
+Connecting to api.github.com (api.github.com)|192.30.253.116|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/mdibl/NathanProjects/legacy.tar.gz/master [following]
+--2018-07-09 14:18:24--  https://codeload.github.com/mdibl/NathanProjects/legacy.tar.gz/master
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.121, 192.30.253.120
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.121|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: 'NathanProjects-master.tar.gz'
+
+     0K                                                        4.18M=0s
+
+2018-07-09 14:18:24 (4.18 MB/s) - 'NathanProjects-master.tar.gz' saved [271]
+
+Untar NathanProjects-master.tar.gz

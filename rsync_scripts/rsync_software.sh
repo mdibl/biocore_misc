@@ -26,7 +26,8 @@ dest_dir="/opt/software"
 # This corrected the issue I was having:
 # rsync: send_files failed to open "/data/projects/DustinUpdike/Jesse_GLH-1/rsem/.Rhistory": Permission denied (13)
 
-rsync_options=' -avz  --rsync-path="/usr/bin/sudo /usr/bin/rsync" --exclude=.snapshot'
+#rsync_options=' -avz  --rsync-path="/usr/bin/sudo /usr/bin/rsync" --exclude=.snapshot'
+rsync_options=' -avz  --exclude=.snapshot'
 
 
 #Check the number of arguments
@@ -47,7 +48,7 @@ dest_server="$2"
 dest_dir="$3"
 
 ## rsync /opt/software
-sudo rsync -avz  --rsync-path='sudo rsync' --exclude=.snapshot $src_dir $dest_server:$dest_dir 
+rsync $rsync_options $src_dir $dest_server:$dest_dir 
 if [ $? -ne 0 ]
 then
    echo "Cmd: rsync $rsync_options $src_dir $dest_server:$dest_dir - FAILED"

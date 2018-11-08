@@ -21,7 +21,12 @@ dest_server="ec2-user@ec2-18-232-77-165.compute-1.amazonaws.com"
 dest_dir="/opt/software"
 
 #rsync_options="--links --ignore-errors"
-rsync_options=" -avz --exclude=.snapshot"
+# Added --rsync-path='/usr/bin/sudo /usr/bin/rsync' 
+# to ensure that rsync was being run with elevated privileges remotely. 
+# This corrected the issue I was having:
+# rsync: send_files failed to open "/data/projects/DustinUpdike/Jesse_GLH-1/rsem/.Rhistory": Permission denied (13)
+
+rsync_options=" -avz  --rsync-path='/usr/bin/sudo /usr/bin/rsync' --exclude=.snapshot"
 
 
 #Check the number of arguments

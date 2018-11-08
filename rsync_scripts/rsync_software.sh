@@ -7,6 +7,7 @@ then
    echo "'rsync' not installed on `pwd`"
    exit 1
 fi
+
 #rsync_options="--links --ignore-errors"
 # make sure the connection is passwordless between the host
 # and the destination server - https://www.centos.org/docs/5/html/5.1/Deployment_Guide/s3-openssh-dsa-key.html
@@ -22,6 +23,25 @@ dest_dir="/opt/software"
 #rsync_options="--links --ignore-errors"
 rsync_options=" -avz --exclude=.snapshot"
 
+
+#Check the number of arguments
+if [ $# -lt 4 ]
+then
+  echo ""
+  echo "***********************************************"
+  echo "Bad usage ---"
+  echo "Usage: ./$SCRIPT_NAME RSYNC_OPTIONS LOCAL_DIR REMOTE_SERVER DESTINATION_DIR"
+  echo "Example1: ./$SCRIPT_NAME $rsync_options $src_dir $dest_server $dest_dir"
+  echo ""
+  echo "***********************************************"
+  echo ""
+  exit 1
+fi
+rsync_options="$1"
+src_dir="$2"
+dest_server="$3"
+dest_dir="$4"
+
 ## rsync /opt/software
 rsync $rsync_options $src_dir $dest_server:$dest_dir 
 if [ $? -ne 0 ]
@@ -30,6 +50,3 @@ then
    exit 1
 fi
 exit 0
-
-
-

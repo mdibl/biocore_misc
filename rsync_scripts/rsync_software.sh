@@ -30,7 +30,7 @@ then
   echo ""
   echo "***********************************************"
   echo "Bad usage ---"
-  echo "Usage: ./$SCRIPT_NAME RSYNC_OPTIONS LOCAL_DIR REMOTE_SERVER DESTINATION_DIR"
+  echo "Usage: ./$SCRIPT_NAME RSYNC_OPTIONS LOCAL_DIR REMOTE_SERVER REMOTE_DIR"
   echo "Example1: ./$SCRIPT_NAME $rsync_options $src_dir $dest_server $dest_dir"
   echo ""
   echo "***********************************************"

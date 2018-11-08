@@ -47,7 +47,7 @@ dest_server="$2"
 dest_dir="$3"
 
 ## rsync /opt/software
-rsync $rsync_options $src_dir $dest_server:$dest_dir 
+rsync -avz  --rsync-path='/usr/bin/sudo /usr/bin/rsync' --exclude=.snapshot $src_dir $dest_server:$dest_dir 
 if [ $? -ne 0 ]
 then
    echo "Cmd: rsync $rsync_options $src_dir $dest_server:$dest_dir - FAILED"

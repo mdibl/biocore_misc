@@ -25,22 +25,21 @@ rsync_options=" -avz --exclude=.snapshot"
 
 
 #Check the number of arguments
-if [ $# -lt 4 ]
+if [ $# -lt 3 ]
 then
   echo ""
   echo "***********************************************"
   echo "Bad usage ---"
-  echo "Usage: ./$SCRIPT_NAME RSYNC_OPTIONS LOCAL_DIR REMOTE_SERVER REMOTE_DIR"
-  echo "Example1: ./$SCRIPT_NAME $rsync_options $src_dir $dest_server $dest_dir"
+  echo "Usage: ./$SCRIPT_NAME  LOCAL_DIR REMOTE_SERVER REMOTE_DIR"
+  echo "Example1: ./$SCRIPT_NAME  $src_dir $dest_server $dest_dir"
   echo ""
   echo "***********************************************"
   echo ""
   exit 1
 fi
-rsync_options="$1"
-src_dir="$2"
-dest_server="$3"
-dest_dir="$4"
+src_dir="$1"
+dest_server="$2"
+dest_dir="$3"
 
 ## rsync /opt/software
 rsync $rsync_options $src_dir $dest_server:$dest_dir 

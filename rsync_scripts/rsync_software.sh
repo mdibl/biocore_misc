@@ -15,43 +15,50 @@ fi
 # an additional directory level at the destination. You can think of a trailing / 
 # on a source as meaning "copy the contents of this directory" as opposed 
 # to "copy the directory by name",
-
-src_dir="/opt/software/"
-dest_server="ec2-user@ec2-18-232-77-165.compute-1.amazonaws.com"
-dest_dir="/opt/software"
-
+#
 #rsync_options="--links --ignore-errors"
 # Added --rsync-path='/usr/bin/sudo /usr/bin/rsync' 
 # to ensure that rsync was being run with elevated privileges remotely. 
 # This corrected the issue I was having:
 # rsync: send_files failed to open "/data/projects/DustinUpdike/Jesse_GLH-1/rsem/.Rhistory": Permission denied (13)
 
-#rsync_options=' -avz  --rsync-path="/usr/bin/sudo /usr/bin/rsync" --exclude=.snapshot'
 rsync_options=' -avz  --exclude=.snapshot'
 
-
+prog_usage(){
+   echo ""
+   echo "Usage: ./$SCRIPT_NAME  SOURCE DESTINATION"
+   echo ""
+}
 #Check the number of arguments
-if [ $# -lt 3 ]
+if [ $# -lt 2 ]
 then
-  echo ""
   echo "***********************************************"
-  echo "Bad usage ---"
-  echo "Usage: ./$SCRIPT_NAME  LOCAL_DIR REMOTE_SERVER REMOTE_DIR"
-  echo "Example1: ./$SCRIPT_NAME  $src_dir $dest_server $dest_dir"
-  echo ""
-  echo "***********************************************"
-  echo ""
+  prog_usage
   exit 1
 fi
-src_dir="$1"
-dest_server="$2"
-dest_dir="$3"
+src_dir=$1
+dest_dir=$2
+if [[ -z "$src_dir" || ! -d $src_dir ]]
+then
+  echo "***********************************************"
+  echo "ERROR - Invalid source: $src_dir "
+  prog_usage()
+  exit 1
+fi
 
-## rsync /opt/software
-rsync $rsync_options $src_dir $dest_server:$dest_dir 
+if [[ -z "$dest_dir" || ! -d $dest_dir ]]
+then
+  echo "***********************************************"
+  echo "ERROR - Invalid source: $dest_dir "
+  prog_usage()
+  exit 1
+fi
+
+rsync $rsync_options $src_dir $dest_dir  2>&1
+
 if [ $? -ne 0 ]
 then
-   echo "Cmd: rsync $rsync_options $src_dir $dest_server:$dest_dir - FAILED"
+   echo "Cmd: rsync $rsync_options $src_dir $dest_dir - FAILED"
    exit 1
 fi
 exit 0
